@@ -17,7 +17,7 @@ resource "yandex_compute_instance" "bastion" {
   }
   boot_disk {
     initialize_params {
-      image_id = var.image_id
+      image_id = "fd807i0dlf0f2h3e83q5"
     }
   }
   network_interface {
