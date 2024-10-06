@@ -18,7 +18,7 @@ resource "yandex_vpc_security_group" "bastion_sg" {
   }
 
   egress {
-    protocol        = "ALL"
+    protocol        = "ANY"
     v4_cidr_blocks  = ["0.0.0.0/0"]
   }
 }
