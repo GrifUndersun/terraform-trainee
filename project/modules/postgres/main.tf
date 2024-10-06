@@ -13,7 +13,7 @@ resource "yandex_mdb_postgresql_cluster" "postgresql" {
   network_id = var.network_id
    host {
         zone    = "ru-central1-a"
-        subnet_id = var.subnet_id
+        subnet_id = var.private_subnet_id
         resources {
             resource_preset = "s3.micro"
             disk {
@@ -25,12 +25,10 @@ resource "yandex_mdb_postgresql_cluster" "postgresql" {
 
     config {
         version = "13"
-        # Дополнительные параметры конфигурации
         postgres {
             settings {
                 max_connections = 100
                 shared_buffers = "128MB"
-                # Добавьте другие настройки, если необходимо
             }
         }
     }
