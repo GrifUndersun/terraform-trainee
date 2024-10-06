@@ -8,7 +8,7 @@ terraform {
 
 resource "yandex_mdb_postgresql_cluster" "foo" {
   name        = "pg-cluster"
-  environment = "production"
+  environment = "PRODUCTION"
   network_id  = var.network_id
   host {
     zone      = var.zone

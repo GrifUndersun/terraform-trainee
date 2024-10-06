@@ -8,11 +8,12 @@ terraform {
 
 resource "yandex_compute_instance" "bastion" {
   name        = "bastion-host"
-  platform_id = "standard-v1"
+  platform_id = "standard-v2"
   zone        = var.zone
   resources {
     cores  = 2
-    memory = 2
+    memory = 1
+    core_fraction = 5
   }
   boot_disk {
     initialize_params {
