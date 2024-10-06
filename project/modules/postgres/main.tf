@@ -11,14 +11,29 @@ resource "yandex_mdb_postgresql_cluster" "postgresql" {
   environment = "production"
 
   network_id = var.network_id
-  master_host {
-    zone = var.zone
-    subnet_id = var.private_subnet_id
-    resources {
-      resource_preset_id = "s2.micro"
-      disk_size = 10
+   host {
+        zone    = "ru-central1-a"
+        subnet_id = var.subnet_id
+        resources {
+            resource_preset = "s3.micro"
+            disk {
+                type = "network-ssd"
+                size = 20
+            }
+        }
     }
-  }
+
+    config {
+        version = "13"
+        # Дополнительные параметры конфигурации
+        postgres {
+            settings {
+                max_connections = 100
+                shared_buffers = "128MB"
+                # Добавьте другие настройки, если необходимо
+            }
+        }
+    }
 }
 
 resource "yandex_mdb_postgresql_database" "db" {
