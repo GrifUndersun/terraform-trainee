@@ -6,32 +6,23 @@ terraform {
   }
 }
 
-resource "yandex_mdb_postgresql_cluster" "postgresql" {
+resource "yandex_mdb_postgresql_cluster" "foo" {
   name        = "pg-cluster"
   environment = "production"
-
-  network_id = var.network_id
-   host {
-        zone    = "ru-central1-a"
-        subnet_id = var.private_subnet_id
-        resources {
-            resource_preset = "s3.micro"
-            disk {
-                type = "network-ssd"
-                size = 20
-            }
-        }
+  network_id  = var.network_id
+  host {
+    zone      = var.zone
+    subnet_id = vpc.private_subnet_id
+  }
+  config {
+    version = 15
+    resources {
+      resource_preset_id = "s2.micro"
+      disk_type_id       = "network-ssd"
+      disk_size          = 16
     }
-
-    config {
-        version = "13"
-        postgres {
-            settings {
-                max_connections = 100
-                shared_buffers = "128MB"
-            }
-        }
-    }
+  }
+  
 }
 
 resource "yandex_mdb_postgresql_database" "db" {
