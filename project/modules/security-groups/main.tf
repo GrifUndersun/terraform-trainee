@@ -6,10 +6,15 @@ terraform {
   }
 }
 
-resource "yandex_vpc_security_group" "bastion_sg" {
+resource "yandex_vpc_default_security_group" "bastion_sg" {
   name = "bastion-sg"
   network_id = var.network_id
 
+  ingress {
+    protocol        = "ANY"
+    v4_cidr_blocks  = ["0.0.0.0/0"]
+  }
+  
   ingress {
     description = var.ssh_rule_name
     protocol    = "TCP"
