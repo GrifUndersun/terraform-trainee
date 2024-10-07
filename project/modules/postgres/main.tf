@@ -25,17 +25,15 @@ resource "yandex_mdb_postgresql_cluster" "foo" {
   
 }
 
-resource "yandex_mdb_postgresql_database" "db" {
+resource "yandex_mdb_postgresql_database" "foo" {
   cluster_id = yandex_mdb_postgresql_cluster.foo.id
   name       = var.db_name
-
   owner      = yandex_mdb_postgresql_user.pguser.name
-
   lc_collate = "en_US.UTF-8"
   lc_type    = "en_US.UTF-8"
 }
 
-resource "yandex_mdb_postgresql_user" "db_user" {
+resource "yandex_mdb_postgresql_user" "foo" {
   cluster_id = yandex_mdb_postgresql_cluster.foo.id
   name       = "pguser"
   password   = var.db_password
