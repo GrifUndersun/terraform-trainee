@@ -20,5 +20,5 @@ variable "public_key_path" {
 
 variable "user_data_file" {
   description = "Путь к публичному SSH-ключу"
-  default = string
+  type        = string
 }
