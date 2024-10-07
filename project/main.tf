@@ -38,7 +38,6 @@ module "private_server" {
   image_id          = "fd801rku4j14mv7fs703" 
   public_key_path   = "~/.ssh/id_rsa.pub"
   user_data_file = file(var.user_data_file)
-
 }
 
 module "security_groups" {

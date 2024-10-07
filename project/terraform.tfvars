@@ -4,6 +4,6 @@ ssh_access = {
 }
 
 
-yc_token     = "y0_AgAEA7qknyHSAATuwQAAAAESDn6KAABxQvUl39FK3YMpwb1uYLrTmTjmXA"   # Ваш OAuth токен для Yandex Cloud
-yc_cloud_id  = "b1g5b020anchqspg6qul"      # ID вашего облака в Yandex Cloud
+yc_token     = "y0_AgAEA7qknyHSAATuwQAAAAESDn6KAABxQvUl39FK3YMpwb1uYLrTmTjmXA"
+yc_cloud_id  = "b1g5b020anchqspg6qul"
 yc_folder_id = "b1glpb149bor12c0h1md"
