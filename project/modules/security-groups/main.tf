@@ -6,8 +6,8 @@ terraform {
   }
 }
 
-resource "yandex_vpc_default_security_group" "bastion_sg" {
-  name = "bastion-sg"
+resource "yandex_vpc_default_security_group" "default-sg" {
+  # name = "bastion-sg"
   network_id = var.network_id
 
   ingress {
