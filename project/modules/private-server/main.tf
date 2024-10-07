@@ -23,7 +23,7 @@ resource "yandex_compute_instance" "private_server" {
   network_interface {
     subnet_id = var.private_subnet_id
   }
-  metadata = {
-    ssh-keys = "debian:${file(var.public_key_path)}"
-  }
+  # metadata = {
+  #   ssh-keys = "debian:${file(var.public_key_path)}"
+  # }
 }
