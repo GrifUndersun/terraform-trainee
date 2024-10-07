@@ -25,6 +25,6 @@ resource "yandex_compute_instance" "bastion" {
     nat       = true
   }
   metadata = {
-    user-data = file(var.user_data_file)
+    user-data = var.user_data_file
   }
 }
