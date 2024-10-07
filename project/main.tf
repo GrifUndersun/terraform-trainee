@@ -8,9 +8,9 @@ terraform {
 
 provider "yandex" {
   zone = "ru-central1-b"
-  token = var.yc_token
-  cloud_id  = var.yc_cloud_id
-  folder_id = var.yc_folder_id
+  # token = var.yc_token
+  # cloud_id  = var.yc_cloud_id
+  # folder_id = var.yc_folder_id
 }
 
 module "vpc" {
