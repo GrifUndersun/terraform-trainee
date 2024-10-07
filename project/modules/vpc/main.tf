@@ -22,6 +22,7 @@ resource "yandex_vpc_subnet" "private" {
   zone           = var.private_zone
   network_id     = yandex_vpc_network.vpc.id
   v4_cidr_blocks = [var.private_cidr_block]
+  route_table_id = yandex_vpc_route_table.my-rt.id
 }
 
 resource "yandex_vpc_gateway" "egress-gateway" {
@@ -29,7 +30,8 @@ resource "yandex_vpc_gateway" "egress-gateway" {
   shared_egress_gateway {}
 }
 
-resource "yandex_vpc_route_table" "lab-rt-a" {
+resource "yandex_vpc_route_table" "my-rt" {
+  name = "my-rt"
   network_id = yandex_vpc_network.vpc.id
 
   static_route {
