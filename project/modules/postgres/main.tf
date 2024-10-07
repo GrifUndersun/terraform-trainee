@@ -37,6 +37,6 @@ resource "yandex_mdb_postgresql_database" "db" {
 
 resource "yandex_mdb_postgresql_user" "db_user" {
   cluster_id = yandex_mdb_postgresql_cluster.foo.id
-  name       = var.db_user
+  name       = "pguser"
   password   = var.db_password
 }
