@@ -26,7 +26,7 @@ module "bastion" {
   source           = "./modules/bastion"
   zone             = "ru-central1-a"
   public_subnet_id = module.vpc.public_subnet_id
-  image_id         = "fd801rku4j14mv7fs703"  # Используйте правильный ID образа
+  image_id         = "fd801rku4j14mv7fs703"
   public_key_path  = "~/.ssh/id_rsa.pub"
   user_data_file = file(var.user_data_file)
 }
@@ -35,7 +35,7 @@ module "private_server" {
   source            = "./modules/private-server"
   zone              = "ru-central1-b"
   private_subnet_id = module.vpc.private_subnet_id
-  image_id          = "fd801rku4j14mv7fs703"  # Используйте правильный ID образа
+  image_id          = "fd801rku4j14mv7fs703" 
   public_key_path   = "~/.ssh/id_rsa.pub"
   user_data_file = file(var.user_data_file)
 
