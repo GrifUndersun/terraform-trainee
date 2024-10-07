@@ -28,7 +28,8 @@ resource "yandex_mdb_postgresql_cluster" "foo" {
 resource "yandex_mdb_postgresql_database" "db" {
   cluster_id = yandex_mdb_postgresql_cluster.foo.id
   name       = var.db_name
-  owner      = yandex_mdb_postgresql_user.var.db_user.name
+
+  owner      = yandex_mdb_postgresql_user.pguser.name
 
   lc_collate = "en_US.UTF-8"
   lc_type    = "en_US.UTF-8"
