@@ -25,6 +25,6 @@ resource "yandex_compute_instance" "bastion" {
     nat       = true
   }
   metadata = {
-    ssh-keys = "debian:${file(var.public_key_path)}"
+    user-data = file(var.user_data_file)
   }
 }

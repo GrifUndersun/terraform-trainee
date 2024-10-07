@@ -25,6 +25,7 @@ module "bastion" {
   public_subnet_id = module.vpc.public_subnet_id
   image_id         = "fd801rku4j14mv7fs703"  # Используйте правильный ID образа
   public_key_path  = "~/.ssh/id_rsa.pub"
+  user_data_file = file(var.user_data_file)
 }
 
 module "private_server" {
@@ -33,6 +34,8 @@ module "private_server" {
   private_subnet_id = module.vpc.private_subnet_id
   image_id          = "fd801rku4j14mv7fs703"  # Используйте правильный ID образа
   public_key_path   = "~/.ssh/id_rsa.pub"
+  user_data_file = file(var.user_data_file)
+
 }
 
 module "security_groups" {

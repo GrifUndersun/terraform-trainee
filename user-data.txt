@@ -1,0 +1,13 @@
+#cloud-config
+datasource:
+  Ec2:
+    strict_id: false
+
+ssh_pwauth: no
+
+users:
+  - name: user
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    shell: /bin/bash
+    ssh_authorized_keys:
+        - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC0NJyU7zWG+gxHtzYbdWdvYK/lvLIczivlK0Gt71xNep7LWQ98isZkYq4tI4dDI/evUaHmVoFjZnOB5fVNcQ9k62Eg0Qyvasne1taaxq4Q8tf6GEwdqw8eMZ3vwvM1oF2yufBQbNTR2FeUXfXnZC+H2whkCG+mCU39GG7YF612JQolVIs1MY854wrvEBk2YLU1PlbJM3tzSTK1BywyjtYQygjnd7VPA5y160XpGKOjRvgY9j/Jiz+epLa3w8ZdgSDMN/QSAMPzvCZDsKdaN7k70l1CFcu51Jqr1oL4t70SPO5JrjXX4IJtkYByuc9fcDpb+zn+2BycHYWnAZmp8EA85gEKzazdgoc7030oV3YGbUobfzLq4pi+J71ADbhQlOd06tRPaHVd3H8HOAIoGhouoERMITAW0MeYrpSHBOMW9djTX4XGQPCn4+bUbAK0vyXN+RI3+2bVkPzihFQIGpiWbtRCAiKEtrZALhE63PA/zpkyG/bqptZzRgTX1t/Io6k= terraform@proxy-server

@@ -5,3 +5,8 @@ variable "ssh_access" {
     name = string
   })
 }
+
+variable "user_data_file" {
+  description = "User-data для instance"
+  default = "../user-data.txt"
+}
